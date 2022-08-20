@@ -19,7 +19,7 @@ public class ModularVoiceChat
 {
 
     public static final String MOD_ID = "modularvc";
-    public static final String MOD_NAME = "ModularVoiceChat";
+    public static final String MOD_NAME = "ModularVoiceChat-KR";
 
     @Mod.Instance(MOD_ID)
     public static ModularVoiceChat INSTANCE;
@@ -30,7 +30,6 @@ public class ModularVoiceChat
     public static File modConfigDir;
 
     public static final int DEFAULT_PORT = 7656;
-    public static final String DISCORD_INVITE = "https://discord.gg/kSu7eFE";
 
     @Mod.EventHandler
     public void onPreInitialization(FMLPreInitializationEvent event)

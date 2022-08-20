@@ -1,11 +1,14 @@
+mvc.text.micmode=MIC Mode:
+mvc.text.volume=Volume
+mvc.text.config=Open Config
+mvc.text.mickey=MIC
+
 mvc.config.pushtotalk=Push-to-talk
 mvc.config.toggletotalk=Toggle-to-talk
-mvc.config.openconfig=Open Config
 mvc.config.audio.test.on=Audio testing on..
 mvc.config.audio.test.off=Test audio
-mvc.config.joindiscord=Join the ModularVoiceChat discord
-mvc.config.audio.input=Audio input:
-mvc.config.audio.output=Audio output:
+mvc.config.audio.input=Audio input
+mvc.config.audio.output=Audio output
 
 mvc.moderation.mute.mutedPlayers=§8Muted Players:
 mvc.moderation.mute.playerMuted=§8Muted player §7%s
@@ -15,7 +18,6 @@ mvc.config.audio.input.volume=The volume at which your voice will be sent.
 mvc.config.audio.output.volume=The volume at which other players' voices will be played.
 mvc.config.audio.output.desc=The audio output device. §7(The one whose voice of other players will be output!)
 mvc.config.audio.input.desc=The audio input device. §7(The one that will be used to record your voice!)
-mvc.config.canMute=/localvoicemute for mute and unmute players locally.
 
 mvc.config.stereo.off=Stereo: OFF
 mvc.config.stereo.on=Stereo: ON

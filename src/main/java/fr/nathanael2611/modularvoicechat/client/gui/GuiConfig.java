@@ -51,14 +51,13 @@ public class GuiConfig extends GuiScreen
         audioTesting = false;
         AudioTester.updateTester();
         int y = 80 + 20;
-        this.buttonList.add(this.microVolume = new GuiConfigSlider(this, 12, width / 2 - 150 - 5, y + 25, ClientConfig.MICROPHONE_VOLUME, 0, 150));
-        this.buttonList.add(this.speakerVolume = new GuiConfigSlider(this, 12, width/ 2 + 5, y + 25, ClientConfig.SPEAKER_VOLUME, 0, 150));
-        this.buttonList.add(this.toggleToTalk = new GuiButton(13, width / 2 - 150 - 5, y + 50, 150, 20, "Mode: " + getSpeakMode()));
-        this.buttonList.add(this.audioTest = new GuiButton(14, width / 2 + 5, y + 50, 150, 20, (audioTesting ? I18n.format("mvc.config.audio.test.on") : I18n.format("mvc.config.audio.test.off"))));
-        this.buttonList.add(new GuiButton(1, width / 2 - 155, y + 50 + 25 + 25,150 + 5 + 5 + 150, 20, I18n.format("mvc.config.joindiscord")));
+        this.buttonList.add(this.microVolume = new GuiConfigSlider(this, 12, width/ 2 + 5, y + 25, ClientConfig.MICROPHONE_VOLUME, 0, 150));
+        this.buttonList.add(this.speakerVolume = new GuiConfigSlider(this, 12, width / 2 - 150 - 5, y + 25, ClientConfig.SPEAKER_VOLUME, 0, 150));
+        this.buttonList.add(this.toggleToTalk = new GuiButton(13, width / 2 + 5, y + 50, 150, 20, I18n.format("mvc.text.micmode") + " " + getSpeakMode()));
+        this.buttonList.add(this.audioTest = new GuiButton(14, width / 2 - 150 - 5, y + 50, 150, 20, (audioTesting ? I18n.format("mvc.config.audio.test.on") : I18n.format("mvc.config.audio.test.off"))));
         this.buttonList.add(this.stereo = new GuiButton(2, width / 2 - 155, y + 50 + 25,150 + 5 + 5 + 150, 20, getStereoMode()));
-        this.buttonList.add(this.microSelector = new GuiDropDownMenu(12, width / 2 - 150 - 4, y, 148, 20, MicroManager.getHandler().getMicro(), Helpers.getStringListAsArray(AudioUtil.findAudioDevices(MicroData.MIC_INFO))));
-        this.buttonList.add(this.speakerSelector = new GuiDropDownMenu(13, width / 2 + 6, y, 148, 20, SpeakerManager.getHandler().getSpeaker(), Helpers.getStringListAsArray(AudioUtil.findAudioDevices(SpeakerData.SPEAKER_INFO))));
+        this.buttonList.add(this.microSelector = new GuiDropDownMenu(12, width / 2 + 6, y, 148, 20, MicroManager.getHandler().getMicro(), Helpers.getStringListAsArray(AudioUtil.findAudioDevices(MicroData.MIC_INFO))));
+        this.buttonList.add(this.speakerSelector = new GuiDropDownMenu(13, width / 2 - 150 - 4, y, 148, 20, SpeakerManager.getHandler().getSpeaker(), Helpers.getStringListAsArray(AudioUtil.findAudioDevices(SpeakerData.SPEAKER_INFO))));
     }
 
     public String getSpeakMode()
@@ -84,9 +83,8 @@ public class GuiConfig extends GuiScreen
         Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 32, 32, 32, 32);
         fontRenderer.drawStringWithShadow(ModularVoiceChat.MOD_NAME, 32, 10, Color.WHITE.getRGB());
         GlStateManager.popMatrix();
-        mc.fontRenderer.drawStringWithShadow("§n" + I18n.format("mvc.config.audio.input"), width / 2 - 150 - 5, 80, Color.WHITE.getRGB());
-        mc.fontRenderer.drawStringWithShadow("§n" + I18n.format("mvc.config.audio.output"), width / 2 + 5, 80, Color.WHITE.getRGB());
-        mc.fontRenderer.drawStringWithShadow("§7" + I18n.format("mvc.config.canMute"), width / 2 - 150 - 5, 200, Color.WHITE.getRGB());
+        mc.fontRenderer.drawStringWithShadow("§n" + I18n.format("mvc.config.audio.input"), width / 2 + 5, 80, Color.WHITE.getRGB());
+        mc.fontRenderer.drawStringWithShadow("§n" + I18n.format("mvc.config.audio.output"), width / 2 - 150 - 5, 80, Color.WHITE.getRGB());
 
 
         super.drawScreen(mouseX, mouseY, partialTicks);
@@ -94,13 +92,13 @@ public class GuiConfig extends GuiScreen
                 mouseY > this.microSelector.y && mouseY < this.microSelector.y + this.microSelector.height &&
                 !this.microSelector.dropDownMenu)
         {
-            this.drawHoveringText(I18n.format("mvc.config.audio.output.desc"), mouseX, mouseY);
+            this.drawHoveringText(I18n.format("mvc.config.audio.input.desc"), mouseX, mouseY);
         }
         else if(mouseX > this.speakerSelector.x && mouseX < this.speakerSelector.x + this.speakerSelector.width &&
                 mouseY > this.speakerSelector.y && mouseY < this.speakerSelector.y + this.speakerSelector.height &&
                 !this.speakerSelector.dropDownMenu)
         {
-            this.drawHoveringText(I18n.format("mvc.config.audio.input.desc"), mouseX, mouseY);
+            this.drawHoveringText(I18n.format("mvc.config.audio.output.desc"), mouseX, mouseY);
         }
         else if(mouseX > this.microVolume.x && mouseX < this.microVolume.x + this.microVolume.width &&
                 mouseY > this.microVolume.y && mouseY < this.microVolume.y + this.microVolume.height)
@@ -141,7 +139,7 @@ public class GuiConfig extends GuiScreen
             if(button == this.toggleToTalk)
             {
                 this.config.set(ClientConfig.TOGGLE_TO_TALK, new JsonPrimitive(!this.config.get(ClientConfig.TOGGLE_TO_TALK).getAsBoolean()));
-                button.displayString = "Mode: " + getSpeakMode();
+                button.displayString = I18n.format("mvc.text.micmode") + " " + getSpeakMode();
             }
             if(button == this.stereo)
             {
@@ -154,10 +152,6 @@ public class GuiConfig extends GuiScreen
 
                 button.displayString = (audioTesting ? I18n.format("mvc.config.audio.test.on") : I18n.format("mvc.config.audio.test.off"));
                 AudioTester.updateTester();
-            }
-            else if(button.id == 1 )
-            {
-                Desktop.getDesktop().browse(URI.create(ModularVoiceChat.DISCORD_INVITE));
             }
         }
     }
@@ -172,6 +166,5 @@ public class GuiConfig extends GuiScreen
     {
         audioTesting = false;
         AudioTester.updateTester();
-
     }
 }

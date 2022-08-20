@@ -25,8 +25,8 @@ import java.io.File;
 public class ClientProxy extends CommonProxy
 {
 
-    public static final KeyBinding KEY_SPEAK = new KeyBinding(I18n.format("mvc.config.pushtotalk"), Keyboard.KEY_V, ModularVoiceChat.MOD_NAME);
-    public static final KeyBinding KEY_OPEN_CONFIG = new KeyBinding(I18n.format("mvc.config.openconfig"), Keyboard.KEY_NONE, ModularVoiceChat.MOD_NAME);
+    public static final KeyBinding KEY_SPEAK = new KeyBinding(I18n.format("mvc.text.mickey"), Keyboard.KEY_V, ModularVoiceChat.MOD_NAME);
+    public static final KeyBinding KEY_OPEN_CONFIG = new KeyBinding(I18n.format("mvc.text.config"), Keyboard.KEY_NONE, ModularVoiceChat.MOD_NAME);
 
     private static ClientConfig config;
 

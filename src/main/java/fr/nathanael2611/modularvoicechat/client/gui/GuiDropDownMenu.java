@@ -5,6 +5,9 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import org.lwjgl.opengl.GL11;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+
 public class GuiDropDownMenu extends GuiButton
 {
     private String[] array;
@@ -58,8 +61,12 @@ public class GuiDropDownMenu extends GuiButton
 
             if (!this.enabled) l = -6250336;
 
-            String normalName = normalText(this.displayString.substring(0, Math.min(this.displayString.length(), 23)));
-            this.drawCenteredString(fontrenderer, normalName, super.x + super.width / 2, super.y + (this.prevHeight - 8) / 2, l);
+            String normalName = normalText(this.displayString.substring(0, Math.min(this.displayString.length(), 38)));
+            try {
+                this.drawCenteredString(fontrenderer, new String(normalName.getBytes("Windows-1252"), Charset.defaultCharset()), super.x + super.width / 2, super.y + (this.prevHeight - 8) / 2, l);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
             GL11.glPushMatrix();
 
             if (this.dropDownMenu && this.array.length != 0)
@@ -67,8 +74,12 @@ public class GuiDropDownMenu extends GuiButton
                 for (int i = 0; i < this.amountOfItems; ++i)
                 {
                     this.mouseOn[i] = this.inBounds(x, y, super.x, super.y + this.prevHeight * (i + 1), super.width, this.prevHeight);
-                    String s = normalText(this.array[i].substring(0, Math.min(this.array[i].length(), 26)) + "..");
-                    this.drawCenteredString(fontrenderer, s, super.x + super.width / 2, super.y + this.prevHeight * (i + 1) + 7, this.mouseOn[i] ? 16777120 : 14737632);
+                    String s = normalText(this.array[i].substring(0, Math.min(this.array[i].length(), 38)));
+                    try {
+                        this.drawCenteredString(fontrenderer, new String(s.getBytes("Windows-1252"), Charset.defaultCharset()), super.x + super.width / 2, super.y + this.prevHeight * (i + 1) + 7, this.mouseOn[i] ? 16777120 : 14737632);
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
             else

@@ -1,0 +1,28 @@
+mvc.text.micmode=마이크 모드:
+mvc.text.volume=볼륨
+mvc.text.config=설정 열기
+mvc.text.mickey=마이크
+
+mvc.config.pushtotalk=눌러서 말하기
+mvc.config.toggletotalk=음성 감지
+mvc.config.audio.test.on=음성 테스트 중...
+mvc.config.audio.test.off=음성 테스트
+mvc.config.audio.input=마이크 설정
+mvc.config.audio.output=스피커 설정
+
+mvc.moderation.mute.mutedPlayers=§8음성 차단된 플레이어 목록:
+mvc.moderation.mute.playerMuted=§8해당 플레이어의 음성을 차단합니다 >  §7%s
+mvc.moderation.mute.playerUnmuted=§8해당 플레이어의 음성 차단을 해제합니다 >  §7%s
+
+mvc.config.audio.input.volume=마이크 볼륨. 당신이 말하는 소리를 조절합니다
+mvc.config.audio.output.volume=스피커 볼륨. 당신이 듣는 소리를 조절합니다
+mvc.config.audio.input.desc=마이크 장치를 설정합니다
+mvc.config.audio.output.desc=스피커 장치를 설정합니다
+
+mvc.config.stereo.off=스테레오 OFF
+mvc.config.stereo.on=스테레오 ON
+
+mvc.error.cantconnect=음성 서버 연결에 실패했습니다!
+mvc.error.muted=§4§l관리자로 인해 당신의 음성이 서버로부터 차단되었습니다!
+mvc.messages.connected=정상적으로 음성 서버에 연결되었습니다!
+mvc.error.notconnected=음성 서버에 연결을 시도하고 있습니다...

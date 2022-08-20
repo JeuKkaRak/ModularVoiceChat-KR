@@ -1,13 +1,13 @@
 [
 {
   "modid": "modularvc",
-  "name": "ModularVoiceChat",
-  "description": "A flexible and modulable VoiceChat mod and API.",
+  "name": "ModularVoiceChat-KR",
+  "description": "A flexible and modulable VoiceChat mod and API. + Korean Translation by JeuKkaRak",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://discord.gg/kSu7eFE",
   "updateUrl": "",
-  "authorList": ["Nathanael2611"],
+  "authorList": ["Nathanael2611, JeuKkaRak"],
   "credits": "This mod was developped by Nathanael2611.",
   "logoFile": "/assets/logo.png",
   "screenshots": [],

@@ -17,7 +17,7 @@ public class ClientConfig extends GameConfig
     public static final ConfigProperty SPEAKER = new ConfigProperty("speaker", new JsonPrimitive(""));
     public static final ConfigProperty SPEAKER_VOLUME = new ConfigProperty("speakerVolume", new JsonPrimitive(100));
     public static final ConfigProperty BITRATE = new ConfigProperty("bitrate", new JsonPrimitive(96000));
-    public static final ConfigProperty TOGGLE_TO_TALK = new ConfigProperty("toggle-to-talk", new JsonPrimitive(false));
+    public static final ConfigProperty TOGGLE_TO_TALK = new ConfigProperty("toggle-to-talk", new JsonPrimitive(true));
     public static final ConfigProperty STEREO = new ConfigProperty("stereo", new JsonPrimitive(true));
 
     public ClientConfig(File config)

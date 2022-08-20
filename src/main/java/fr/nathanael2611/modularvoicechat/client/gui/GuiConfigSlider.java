@@ -10,6 +10,7 @@ import fr.nathanael2611.modularvoicechat.util.Helpers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.util.math.MathHelper;
 
 public class GuiConfigSlider extends GuiButton
@@ -31,9 +32,8 @@ public class GuiConfigSlider extends GuiButton
         this.minValue = minValueIn;
         this.maxValue = maxValue;
         this.sliderValue = (
-                minValue + ClientProxy.getConfig().get(property).getAsInt()
-                        * 1 / maxValue);
-        displayString = "Volume: " + ClientProxy.getConfig().get(property).getAsInt() + "%";
+                minValue + ClientProxy.getConfig().get(property).getAsInt() / maxValue);
+        displayString = I18n.format("mvc.text.volume") + " " + ClientProxy.getConfig().get(property).getAsInt() + "%";
 
     }
 
@@ -70,7 +70,7 @@ public class GuiConfigSlider extends GuiButton
                 this.sliderValue = sliderValue;
 
                 int val = (int) (minValue + Helpers.crossMult(sliderValue, 1, maxValue));
-                displayString =  val + "%";
+                displayString =  I18n.format("mvc.text.volume") + " " + val + "%";
 
                 //this.displayString = mc.gameSettings.getKeyBinding(this.options);
             }
